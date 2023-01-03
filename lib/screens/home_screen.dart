@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                       width: 50,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage('assets/images/fly-logo.jpg'),
                         ),
@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                 const Gap(20),
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFFF4F6FD),
+                    color: const Color(0xFFF4F6FD),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
@@ -100,20 +100,17 @@ class HomeScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 20),
             child: Row(
-              children: [
-                TicketView(),
-                TicketView(),
-              ],
+              children: ticketList.map((singleTicket) => TicketView(ticket: singleTicket)).toList(),
             ),
           ),
           const Gap(15),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Hotels',
+                  'Hotels', 
                   style: Styles.headLineStyle2,
                 ),
                 InkWell(
